@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas de Fer y Miguel</title>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <div class="container">
+        <div id="home" class="view">
+            <div class="header">
+                <div class="chef-icon"><img src="img/icono-chef.jpg" alt="Chef"></div>
+                <h1>RECETAS DE FER Y MIGUEL</h1>
+                <p>Cocina casera :v</p>
+            </div>
+            <div class="slider-section">
+                <h2 class="slider-title">RECETAS DESTACADAS</h2>
+                <div class="slider" id="slider"></div>
+            </div>
+            <div class="categories">
+                <div class="category animated" onclick="showSection('desayunos')"><div class="category-icon"><img src="img/icono-desayuno.jpg" alt="Desayunos"></div><h2>Desayunos</h2><p>6 recetas</p></div>
+                <div class="category animated" onclick="showSection('comidas')"><div class="category-icon"><img src="img/icono-comidas.jpg" alt="Comidas"></div><h2>Comidas</h2><p>6 recetas</p></div>
+                <div class="category animated" onclick="showSection('postres')"><div class="category-icon"><img src="img/icono-postres.jpg" alt="Postres"></div><h2>Postres</h2><p>6 recetas</p></div>
+                <div class="category animated" onclick="showSection('bebidas')"><div class="category-icon"><img src="img/icono-bebidas.jpg" alt="Bebidas"></div><h2>Bebidas</h2><p>6 recetas</p></div>
+                <div class="category animated" onclick="showSection('favoritos')"><div class="category-icon"><img src="img/icono-favoritos.jpg" alt="Favoritos"></div><h2>Favoritos</h2><p id="favCount">0 recetas</p></div>
+                <div class="category animated" onclick="showCRUD()"><div class="category-icon"><img src="img/icono-administrar.jpg" alt="Administrar"></div><h2>Administrar Recetas</h2><p>Crear/Editar</p></div>
+            </div>
+        </div>
+        <div id="section" class="view hidden">
+            <button class="btn back-btn" onclick="showHome()">← VOLVER</button>
+            <h1 id="sectionTitle" style="text-align:center;font-size:2.8rem;margin-bottom:45px;color:#F0F0F0;font-weight:700;letter-spacing:2px"></h1>
+            <div class="recipes-grid" id="recipesGrid"></div>
+        </div>
+        <div id="detail" class="view hidden">
+            <button class="btn back-btn" onclick="backToSection()">← VOLVER</button>
+            <div class="recipe-detail" id="recipeDetail"></div>
+        </div>
+
+        <div id="crud" class="view hidden">
+            <button class="btn back-btn" onclick="showHome()">← VOLVER</button>
+            <h1 style="text-align:center;font-size:2.8rem;margin-bottom:45px;color:#F0F0F0;font-weight:700;letter-spacing:2px">ADMINISTRAR MIS RECETAS</h1>
+            <div style="background:#3A3A3A;padding:30px;border-radius:15px;box-shadow:0 8px 25px rgba(0,0,0,.3);margin-bottom:40px">
+                <h2 style="color:#D0D0D0;margin-bottom:20px" id="crudFormTitle">CREAR NUEVA RECETA</h2>
+                <form id="crudForm" class="crud-form">
+                    <input type="hidden" id="recipeId">
+                    <input type="text" id="recipeName" placeholder="Nombre de la Receta" required>
+                    <textarea id="recipeIngredients" placeholder="Ingredientes (separados por coma, ej: 2 tazas de harina, 1 huevo, etc.)" required></textarea>
+                    <textarea id="recipeSteps" placeholder="Pasos de Preparación (separados por punto y coma, ej: Mezcla secos; Agrega líquidos; Cocina en sartén)" required></textarea>
+                    <button type="submit" class="btn" id="crudSubmitBtn">CREAR RECETA</button>
+                </form>
+            </div>
+            <h2 style="color:#F0F0F0;margin-bottom:20px;border-bottom:2px solid #555;padding-bottom:10px">RECETAS CREADAS</h2>
+            <div id="crudList"></div>
+        </div>
+        </div>
+    <div class="footer-section">
+        <h2>¿Quiénes Somos?</h2>
+        <p>Somos Fer y Miguel, apasionados por la cocina casera de calidad. Nuestra misión es compartir recetas sencillas y deliciosas que puedas preparar en casa. ¡Conéctate con nosotros!</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com/" target="_blank" title="Facebook">Facebook</a>
+            <a href="https://www.instagram.com/" target="_blank" title="Instagram">Instagram</a>
+            <a href="https://wa.me/" target="_blank" title="WhatsApp">Facebook</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

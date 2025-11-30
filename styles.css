@@ -1,0 +1,195 @@
+*{margin:0;padding:0;box-sizing:border-box}
+        /* CAMBIO 1: Fondo de la página a Gris Oscuro */
+        body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#3A3A3A 0%,#2C2C2C 50%,#202020 100%);min-height:100vh}
+        
+        .container{max-width:1200px;margin:0 auto;padding:20px}
+        /* Animaciones Simplificadas */
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+        @keyframes slideInUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+        .animated{animation:fadeIn .5s ease forwards}
+        .header{text-align:center;padding:50px 20px 30px;animation:fadeIn .8s ease}
+        /* CAMBIO 2: Título a Gris Claro */
+        .header h1{font-size:4rem;background:linear-gradient(135deg,#CCCCCC 0%,#E0E0E0 50%,#FFFFFF 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:15px;font-weight:700;letter-spacing:2px}
+        /* CAMBIO 2: Párrafo a Gris Claro */
+        .header p{color:#B0B0B0;font-size:1.1rem;font-weight:500}
+        
+        /* Estilos ajustados para el icono del chef */
+        .chef-icon{
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            animation:none;
+        }
+        .chef-icon img { 
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        /* Fin ajustes cabecera */
+
+        .slider-section{margin:50px 0;animation:slideInUp 1s ease}
+        /* CAMBIO 2: Título de Slider a Gris Claro */
+        .slider-title{font-size:1.6rem;color:#B0B0B0;margin-bottom:25px;font-weight:600;letter-spacing:1px}
+        
+        .slider{display:flex;gap:20px;overflow-x:auto;padding:20px 0;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#8B5A3C #E3CAA5}
+        .slider::-webkit-scrollbar{height:8px}
+        .slider::-webkit-scrollbar-track{background:#444444;border-radius:10px} /* Scrollbar oscuro */
+        .slider::-webkit-scrollbar-thumb{background:#666666;border-radius:10px}
+        /* CAMBIO 2: Tarjetas de Slider con texto en Gris Claro y fondo claro para contraste */
+        .slider-card{min-width:280px;background:linear-gradient(135deg,#444444 0%,#3A3A3A 100%);border-radius:15px;padding:25px;box-shadow:0 8px 25px rgba(0,0,0,.3);transition:all .3s ease;cursor:pointer;border:1px solid rgba(139,90,60,.1);animation:slideInUp .5s ease forwards;opacity:0}
+        .slider-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+        .slider-card h3{color:#F0F0F0;margin-bottom:12px;font-size:1.25rem;font-weight:600}
+        .slider-card p{color:#A0A0A0;font-size:.9rem;font-weight:500}
+        
+        /* RESPONSIVIDAD CATEGORIES (MOBILE FIRST) */
+        .categories{
+            display:grid;
+            grid-template-columns:1fr; /* Una columna por defecto (móviles) */
+            gap:25px;
+            margin-top:50px;
+        }
+        
+        /* MEDIA QUERY: Aplica la cuadrícula para pantallas medianas (tabletas y PC) */
+        @media (min-width: 600px) {
+            .categories{
+                grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); /* 2 a 6 columnas */
+            }
+        }
+        
+        .category{background:linear-gradient(135deg,var(--c1),var(--c2));border-radius:20px;padding:45px;text-align:center;cursor:pointer;transition:all .3s ease;box-shadow:0 8px 25px rgba(0,0,0,.3);animation:slideInUp .6s ease forwards;opacity:0;position:relative;overflow:hidden}
+        .category::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,transparent 0%,rgba(0,0,0,.2) 100%);opacity:0;transition:opacity .3s}
+        .category:hover::before{opacity:1}
+        
+        /* COLORES PERSONALIZADOS (Ajustados para fondo oscuro) */
+        /* Desayunos: Naranja Fruta */
+        .category:nth-child(1){animation-delay:.1s;--c1:#D85F00;--c2:#FFA500} 
+        /* Comidas: Café */
+        .category:nth-child(2){animation-delay:.2s;--c1:#5D4037;--c2:#795548} 
+        /* Postres: Rojo Fresa */
+        .category:nth-child(3){animation-delay:.3s;--c1:#9E2020;--c2:#C62828}
+        /* Bebidas: Verdoso Selva */
+        .category:nth-child(4){animation-delay:.4s;--c1:#38703C;--c2:#4CAF50}
+        /* Favoritos: Café Chocolate Claro */
+        .category:nth-child(5){animation-delay:.5s;--c1:#7A675F;--c2:#968882}
+        /* Administrar Recetas: Azul Muy Oscuro */
+        .category:nth-child(6){animation-delay:.6s;--c1:#0D3580;--c2:#1960B0} 
+        /* FIN COLORES PERSONALIZADOS */
+
+        .category:hover{transform:scale(1.02);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+        
+        /* Estilos ajustados para los nuevos íconos de categorías */
+        .category-icon{
+            width: 100%;
+            height: 120px;
+            font-size:3rem;
+            margin-bottom:10px;
+            position:relative;
+            z-index:1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .category-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        /* Fin ajustes categorías */
+
+        .category h2{color:#FFF;font-size:1.8rem;margin-bottom:8px;font-weight:600;position:relative;z-index:1}
+        .category p{color:rgba(255,255,255,.9);font-weight:500;position:relative;z-index:1}
+        
+        /* RESPONSIVIDAD GRID RECETAS */
+        .recipes-grid{
+            display:grid;
+            grid-template-columns:1fr; /* Una columna por defecto (móviles) */
+            gap:25px;
+        }
+
+        /* MEDIA QUERY: Aplica la cuadrícula para pantallas medianas (tabletas y PC) */
+        @media (min-width: 600px) {
+            .recipes-grid{
+                grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+            }
+        }
+
+        /* CAMBIO 2: Tarjetas de Recetas en Gris Oscuro */
+        .recipe-card{background:linear-gradient(135deg,#3A3A3A 0%,#2C2C2C 100%);border-radius:15px;padding:28px;box-shadow:0 8px 25px rgba(0,0,0,.3);cursor:pointer;transition:all .3s ease;animation:slideInUp .5s ease forwards;opacity:0;border:1px solid #555}
+        .recipe-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+        /* CAMBIO 2: Texto en Gris Claro */
+        .recipe-card h3{color:#F0F0F0;font-size:1.35rem;font-weight:600}
+        .heart{cursor:pointer;font-size:1.4rem;transition:all .3s;color:#555}
+        .heart:hover{transform:scale(1.1)}
+        .heart.active{color:#FF6B6B} /* Rojo más brillante en fondo oscuro */
+        
+        /* CAMBIO 2: Detalle de Receta en Gris Oscuro */
+        .recipe-detail{background:linear-gradient(135deg,#3A3A3A 0%,#2C2C2C 100%);border-radius:20px;padding:45px;box-shadow:0 15px 50px rgba(0,0,0,.3);animation:fadeIn .6s ease;border:1px solid #555}
+        .recipe-detail h1{background:linear-gradient(135deg,#E0E0E0,#F0F0F0);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;font-size:2.5rem;margin-bottom:35px;font-weight:700}
+        .recipe-detail h2{color:#F0F0F0;margin:35px 0 18px;font-size:1.7rem;font-weight:600;border-bottom:2px solid #555;padding-bottom:10px}
+        .ingredient-list{list-style:none}
+        .ingredient-list li{padding:12px 0;color:#B0B0B0;border-bottom:1px solid #444;animation:slideInUp .4s ease forwards;opacity:0;font-weight:500}
+        .step{display:flex;gap:20px;margin:22px 0;animation:slideInUp .5s ease forwards;opacity:0}
+        .step-number{min-width:45px;height:45px;background:linear-gradient(135deg,#0D47A1,#1976D2);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:1.1rem;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+        .step p{color:#B0B0B0;line-height:1.7;padding-top:10px;font-weight:500}
+        
+        .btn{background:linear-gradient(135deg,#0D47A1,#1976D2);color:white;border:none;padding:16px 35px;border-radius:12px;cursor:pointer;font-size:1rem;font-weight:600;transition:all .3s;box-shadow:0 6px 20px rgba(0,0,0,.3);letter-spacing:.5px}
+        .btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.4);background:linear-gradient(135deg,#1976D2,#0D47A1)}
+        
+        .btn-youtube{width:100%;margin-top:35px;font-size:1.05rem;padding:18px}
+        .back-btn{margin-bottom:25px}
+        .hidden{display:none}
+        
+        /* Footer Oscuro */
+        .footer-section{text-align:center;padding:60px 20px;margin-top:50px;background:linear-gradient(135deg,#2C2C2C 0%,#3A3A3A 100%);border-top:1px solid #555;animation:fadeIn 1s ease forwards;}
+        .footer-section h2{font-size:2rem;color:#F0F0F0;margin-bottom:20px;font-weight:700;}
+        .footer-section p{color:#A0A0A0;font-size:1.1rem;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6;}
+        .social-links{display:flex;justify-content:center;gap:30px;}
+        .social-links a{text-decoration:none;font-size:2rem;color:#808080;transition:color .3s, transform .3s;}
+        .social-links a:hover{color:#F0F0F0;transform:scale(1.1);}
+
+        /* CRUD STYLES */
+        .crud-form input, .crud-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #555;
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #F0F0F0;
+            background-color: #444; /* Fondo de input oscuro */
+            resize: vertical;
+        }
+        .crud-form button {
+            width: 100%;
+            margin-top: 10px;
+        }
+        .crud-list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #3A3A3A;
+            border-radius: 10px;
+            box-shadow:0 4px 10px rgba(0,0,0,.3);
+            margin-bottom: 15px;
+        }
+        .crud-list-item h4 {
+            color: #F0F0F0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .crud-actions button {
+            margin-left: 10px;
+            padding: 8px 15px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color .3s;
+            color: white; /* Texto del botón blanco */
+        }
+        .edit-btn { background-color: #1976D2; }
+        .delete-btn { background-color: #C07474; }
+        .edit-btn:hover { background-color: #0D47A1; }
+        .delete-btn:hover { background-color: #A05555; }
